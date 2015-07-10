@@ -5,7 +5,10 @@ var transformTools = require('browserify-transform-tools')
 	;
 
 module.exports = transformTools.makeRequireTransform('browserify-global-shim',
-	{evaluateArguments: true},
+	{
+        evaluateArguments: true,
+        includeExtensions: [".js", ".es6", ".coffee", ".coffee.md", ".litcoffee", "._js", "._coffee"]
+    },
 	function(args, opts, cb) {
 		var shimmedModules = opts.config || {};
 
